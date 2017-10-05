@@ -1,0 +1,60 @@
+{% extends "layout/base.html" %}
+{%load staticfiles%}
+{% block extrahead %}
+ <!-- Materialize Core Css -->
+   
+    
+{% endblock extrahead %}
+
+{% block basecontent %}
+<body class="login-page" style="max-width:600px;">
+    <div class="login-box">
+        <div class="logo">
+            <a href="javascript:void(0);">Sign Up</a>
+        </div>
+        <div class="row">
+          <div class="card-panel">
+            <div class="col s12">
+            
+            <a class="align-right"  href="{% url 'login'%}"><h5>Login</h5> </a>
+            </div>
+
+           
+              <form class="form-horizontal" style="" action="" method="post" enctype="multipart/form-data">
+              {%csrf_token%}
+              
+              {%for field in form %}
+                    {%if field.errors%}
+                    <span style="color:#FF0000;">{{ field.errors }}</span>
+                    {%endif%}
+                  <div class="input-field col s6">
+                    {{field}}
+                    {{field.label_tag}}
+                    
+                  </div>
+                    
+                    
+               
+              {%endfor%}
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                    <i class="mdi-content-send right"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+           
+          </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+{% endblock basecontent%}
+
+{%block extrajs%}
+
+{%endblock extrajs%}

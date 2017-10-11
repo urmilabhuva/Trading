@@ -16,22 +16,37 @@
                <h5 class="">Enter Assets & Weight</h5>
 
 
-            <form class="form-horizontal" style="" action="#" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" style="" action="#" method="post" enctype="multipart/form-data" onsubmit= "return validateform()">
             {%csrf_token%}
             {% for choice in form.like %}
                     {{ choice.tag }}
                     <label for="{{ form.like.auto_id }}_{{ forloop.counter0 }}">{{ choice.choice_label }}</label>
                     
             {% endfor %}
+           <!--  <div class="row">
+            {%for field in form %}
+                    {%if field.errors%}
+                    <span style="color:#FF0000;">{{ field.errors }}</span>
+                    {%endif%}
+                  <div class="input-field inline col s6">
+                    {{field}}
+                    {{field.label_tag}}
+                    
+                  </div>
+                    
+                    
+               
+              {%endfor%}
+            </div> -->
             <div class="row">
                 <div class=" input-field inline col s6">
                     
-                    {{form.start_date}}
+                    {{form.start_date}}<span style="color:#FF0000;">{{form.start_date.errors}}</span>
                     <label>{{form.start_date.label}}</label>
                     
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.end_date}}
+                    {{form.end_date}}<span style="color:#FF0000;">{{form.end_date.errors}}</span>
                     <label>{{form.end_date.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -39,7 +54,7 @@
                     <label>{{form.warehouse1.label}}</label>
                 </div>
                  <div class=" input-field inline col s6">
-                    {{form.store1}}
+                    {{form.store1}}<span style="color:#FF0000;">{{form.store1.errors}}</span>
                     <label>{{form.store1.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -47,7 +62,7 @@
                     <label>{{form.warehouse2.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store2}}
+                    {{form.store2}}<span style="color:#FF0000;">{{form.store2.errors}}</span>
                     <label>{{form.store2.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -55,7 +70,7 @@
                     <label>{{form.warehouse3.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store3}}
+                    {{form.store3}}<span style="color:#FF0000;">{{form.store3.errors}}</span>
                     <label>{{form.store3.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -63,7 +78,7 @@
                     <label>{{form.warehouse4.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store4}}
+                    {{form.store4}}<span style="color:#FF0000;">{{form.store4.errors}}</span>
                     <label>{{form.store4.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -71,7 +86,7 @@
                     <label>{{form.warehouse5.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store5}}
+                    {{form.store5}}<span style="color:#FF0000;">{{form.store5.errors}}</span>
                     <label>{{form.store5.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -79,7 +94,7 @@
                     <label>{{form.warehouse6.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store6}}
+                    {{form.store6}}<span style="color:#FF0000;">{{form.store6.errors}}</span>
                     <label>{{form.store6.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -87,7 +102,7 @@
                     <label>{{form.warehouse7.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store7}}
+                    {{form.store7}}<span style="color:#FF0000;">{{form.store7.errors}}</span>
                     <label>{{form.store7.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -95,7 +110,7 @@
                     <label>{{form.warehouse8.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store8}}
+                    {{form.store8}}<span style="color:#FF0000;">{{form.store8.errors}}</span>
                     <label>{{form.store8.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -103,7 +118,7 @@
                     <label>{{form.warehouse9.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store9}}
+                    {{form.store9}}<span style="color:#FF0000;">{{form.store9.errors}}</span>
                     <label>{{form.store9.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -111,7 +126,7 @@
                     <label>{{form.warehouse10.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store10}}
+                    {{form.store10}}<span style="color:#FF0000;">{{form.store10.errors}}</span>
                     <label>{{form.store10.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -119,7 +134,7 @@
                     <label>{{form.warehouse11.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store11}}
+                    {{form.store11}}<span style="color:#FF0000;">{{form.store11.errors}}</span>
                     <label>{{form.store11.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -127,7 +142,7 @@
                     <label>{{form.warehouse12.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store12}}
+                    {{form.store12}}<span style="color:#FF0000;">{{form.store12.errors}}</span>
                     <label>{{form.store12.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -135,7 +150,7 @@
                     <label>{{form.warehouse13.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store13}}
+                    {{form.store13}}<span style="color:#FF0000;">{{form.store13.errors}}</span>
                     <label>{{form.store13.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -143,7 +158,7 @@
                     <label>{{form.warehouse14.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store14}}
+                    {{form.store14}}<span style="color:#FF0000;">{{form.store14.errors}}</span>
                     <label>{{form.store14.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
@@ -151,7 +166,7 @@
                     <label>{{form.warehouse15.label}}</label>
                 </div>
                 <div class=" input-field inline col s6">
-                    {{form.store15}}
+                    {{form.store15}}<span style="color:#FF0000;">{{form.store15.errors}}</span>
                     <label>{{form.store15.label}}</label>
                 </div>
                              
